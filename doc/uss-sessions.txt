@@ -1,0 +1,13 @@
+*uss-sessions.txt*  UltaSuperSimple Session management plugin
+
+Author:  Yogesh Dhamija <ydhamija96.github.io>
+
+See: |mksession|
+
+                                                *:StartKeepingSession*
+:StartKeepingSession      Starts saving the session in a .vim directory in the current working
+                            directory. From now on, if you open vim from that directory (without
+                            specifying any args), it will resume your session.
+
+                                                *:StopKeepingSession*
+:StopKeepingSession       Removes the session file, and removes auto-saving of sessions.
