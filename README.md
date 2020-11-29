@@ -7,4 +7,4 @@ Features:
 - Per directory. `:StartKeepingSession` from `~/foo`. Now, whenever you open vim from `~/foo` (without args), it will pick up from where you left off.
 
 To install: 
-- Using [vim-plug](https://github.com/junegunn/vim-plug): `Plug 'ydhamija96/uss-sessions.vim'`
+- Using [vim-plug](https://github.com/junegunn/vim-plug): `Plug 'yogeshdhamija/save-sessions-per-directory.vim'`
