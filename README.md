@@ -1,6 +1,6 @@
-# uss-sessions.vim
+# save-sessions-per-directory.vim
 
-Simple session management for vim. See `:help uss-sessions.txt` once installed, or see the `doc/` directory.
+Simple session management for vim. See `:help save-sessions-per-directory.txt` once installed, or see the `doc/` directory.
 
 Features:
 - Echoes what's happening under the hood, so you're aware.

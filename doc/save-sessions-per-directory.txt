@@ -1,6 +1,6 @@
-*uss-sessions.txt*  UltaSuperSimple Session management plugin
+*save-sessions-per-directory.txt*
 
-Author:  Yogesh Dhamija <ydhamija96.github.io>
+Author:  Yogesh Dhamija <yogeshdhamija.github.io>
 
 See: |mksession|
 
