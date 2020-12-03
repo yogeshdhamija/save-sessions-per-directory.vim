@@ -9,5 +9,15 @@ See: |mksession|
                             directory. From now on, if you open vim from that directory (without
                             specifying any args), it will resume your session.
 
+                                                *:STARTKEEPINGSESSION*
+:STARTKEEPINGSESSION        Equivalent to |:StartKeepingSession|.
+                            This capitalized command is defined so that an abbreviated version 
+                            can more easily be typed, like ":STA" (see |user-cmd-ambiguous|).
+
                                                 *:StopKeepingSession*
 :StopKeepingSession       Removes the session file, and removes auto-saving of sessions.
+
+                                                *:STOPKEEPINGSESSION*
+:STOPKEEPINGSESSION        Equivalent to |:StopKeepingSession|.
+                            This capitalized command is defined so that an abbreviated version 
+                            can more easily be typed, like ":STO" (see |user-cmd-ambiguous|).

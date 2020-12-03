@@ -7,12 +7,11 @@ if exists("g:loaded_save_sessions_per_directory")
 endif
 let g:loaded_save_sessions_per_directory = 1
 
-if !exists(":StartKeepingSession")
-    command! StartKeepingSession call s:start_keeping_session()
-endif
-if !exists(":StopKeepingSession")
-    command! StopKeepingSession call s:stop_keeping_session()
-endif
+command StartKeepingSession call s:start_keeping_session()
+command STARTKEEPINGSESSION call s:start_keeping_session()
+
+command StopKeepingSession call s:stop_keeping_session()
+command STOPKEEPINGSESSION call s:stop_keeping_session()
 
 augroup save_sessions_per_directory_vim_launch_augroup
     autocmd!
