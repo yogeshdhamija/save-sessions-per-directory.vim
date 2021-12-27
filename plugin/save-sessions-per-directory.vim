@@ -13,6 +13,12 @@ command STARTKEEPINGSESSION call s:start_keeping_session()
 command StopKeepingSession call s:stop_keeping_session()
 command STOPKEEPINGSESSION call s:stop_keeping_session()
 
+if(has('nvim'))
+    let s:vim_session_file = "session.nvim"
+else
+    let s:vim_session_file = "session.vim"
+endif
+
 augroup save_sessions_per_directory_vim_launch_augroup
     autocmd!
     autocmd StdinReadPre * let s:std_in=1
@@ -26,27 +32,27 @@ function! s:start_keeping_session() abort
     augroup END
     let s:vim_session_folder = getcwd()
     redraw!
-    echomsg "Added autocmd to execute 'mksession! ".s:vim_session_folder."/.vim/session.vim'."
+    echomsg "Added autocmd to execute 'mksession! ".s:vim_session_folder."/.vim/".s:vim_session_file."'."
 endfunction
 
 function! s:stop_keeping_session() abort
     if(exists("s:vim_session_folder"))
-        call delete(s:vim_session_folder."/.vim/session.vim")
+        call delete(s:vim_session_folder."/.vim/".s:vim_session_file)
         augroup save_sessions_per_directory_auto_saving_sessions_augroup
             autocmd!
         augroup END
         redraw!
-        echomsg "Executed '!rm ".s:vim_session_folder."/.vim/session.vim' and removed autocmd which executed mksession"
+        echomsg "Executed '!rm ".s:vim_session_folder."/.vim/".s:vim_session_file."' and removed autocmd which executed mksession"
     endif
 endfunction
 
 function! s:load_session_if_vim_not_launched_with_args() abort
     if argc() == 0 && !exists("s:std_in")
-        if filereadable(expand('.vim/session.vim'))
+        if filereadable(expand('.vim/'.s:vim_session_file))
             silent call s:start_keeping_session()
-            execute 'silent source .vim/session.vim'
+            execute 'silent source .vim/'.s:vim_session_file
             redraw!
-            echomsg "Executed ':source ".s:vim_session_folder."/.vim/session.vim'"
+            echomsg "Executed ':source ".s:vim_session_folder."/.vim/".s:vim_session_file."'"
         endif
     endif
 endfunction
@@ -57,7 +63,7 @@ function! s:save_session() abort
         set sessionoptions&
         set sessionoptions-=options
         call mkdir(s:vim_session_folder."/.vim", "p", "0700")
-        execute 'mksession! '.s:vim_session_folder.'/.vim/session.vim'
+        execute 'mksession! '.s:vim_session_folder.'/.vim/'.s:vim_session_file
     finally
         let &sessionoptions = l:sessionoptions
     endtry
